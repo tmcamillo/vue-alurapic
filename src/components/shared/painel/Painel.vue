@@ -1,13 +1,21 @@
 <template>
   <div class="painel">
-    <h2 class="painel-titulo">{{ titulo }}</h2>
-    <slot class="painel-conteudo"></slot>
+    <h2 class="painel-titulo" @dblclick="visible = !visible">{{ titulo }}</h2>
+    <div class="painel-conteudo" v-show=visible>
+      <slot></slot>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['titulo']
+  props: ['titulo'],
+
+  data(){
+    return {
+      visible: true
+    }
+  }
 }
 </script>
 
