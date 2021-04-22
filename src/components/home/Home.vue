@@ -9,6 +9,13 @@
 
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva :url="foto.url" :titulo="foto.titulo"/>
+          <meu-botao
+            tipo="button"
+            rotulo="REMOVER"
+            @botaoAtivado="remover(foto)"
+            :confirmacao="false"
+            estilo="perigo"
+          />
         </meu-painel>
 
       </li>
@@ -19,17 +26,24 @@
 <script>
 import Painel from '../shared/painel/Painel.vue'
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue'
+import Botao from '../shared/botao/Botao.vue'
 
 export default {
   components: {
     'meu-painel' : Painel,
-    'imagem-responsiva' : ImagemResponsiva
+    'imagem-responsiva' : ImagemResponsiva,
+    'meu-botao': Botao
   },
   data(){
     return {
       titulo: 'Alurapic',
       listaFotos: [],
       filtro: ''
+    }
+  },
+  methods: {
+    remover(foto){
+      alert('Remover a foto!' + foto.titulo);
     }
   },
   computed: {
