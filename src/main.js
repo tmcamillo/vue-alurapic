@@ -4,6 +4,7 @@ import App from './App.vue'
 import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
 import {routes} from './routes';
+import './directives/Transform.js';
 
 // registrando o módulo/plugin no global view object
 Vue.use(VueResource);
