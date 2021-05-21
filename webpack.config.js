@@ -21,6 +21,8 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
+            'scss': 'vue-style-loader!css-loader!sass-loader',
+            'scss': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
           }
           // other vue-loader options go here
         }
@@ -62,7 +64,8 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"'
+        NODE_ENV: '"production"',
+        API_URL: '"http://enderecodasuaapi.com"'
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
